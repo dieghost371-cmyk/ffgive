@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ghost FF Account Giveaway</title>
+<style>
+:root{--bg:#0b0b10;--card:#15151e;--text:#f2f2f7;--muted:#9a9aae;--accent:#ff3b30;--accent2:#ff9500;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;background:radial-gradient(circle at 50% 0%,#3a0d0d 0%,var(--bg) 60%)}
+.card{width:100%;max-width:420px;background:var(--card);border:1px solid #2a2a38;border-radius:20px;padding:24px 20px;text-align:center;box-shadow:0 10px 40px rgba(255,59,48,.18)}
+.pic{width:100%;height:190px;border-radius:14px;overflow:hidden;background:#1d1d2b;display:flex;align-items:center;justify-content:center;margin-bottom:14px;border:1px solid #2a2a38}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+.pic .fb{font-size:72px;animation:float 2.4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+h1{margin:6px 0;font-size:22px}
+.tag{display:inline-block;background:var(--accent);color:#fff;font-size:12px;padding:3px 10px;border-radius:999px;margin-bottom:8px;font-weight:700}
+p{color:var(--muted);line-height:1.5;margin:10px 0}
+.bar{height:12px;background:#252533;border-radius:999px;overflow:hidden;margin:16px 0 6px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s ease}
+.small{font-size:13px;color:var(--muted)}
+button{width:100%;margin-top:16px;padding:16px;font-size:18px;font-weight:800;color:#fff;border:0;border-radius:14px;background:linear-gradient(90deg,var(--accent),var(--accent2));cursor:pointer;animation:pulse 1.2s infinite}
+button:active{transform:scale(.97)}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(255,59,48,.18)}}
+.gbtn{background:#fff;color:#222;display:flex;align-items:center;justify-content:center;gap:10px;animation:none;font-size:16px}
+.gbtn svg{width:22px;height:22px}
+.foot{margin-top:14px;font-size:11px;color:#6b6b80}
+.note{margin-top:14px;font-size:12px;color:var(--muted);background:#1d1d2b;border-radius:10px;padding:10px}
+.err{color:var(--accent);font-size:13px;margin-top:10px}
+.user{display:flex;align-items:center;gap:10px;margin-bottom:14px;text-align:left;font-size:13px;color:var(--muted)}
+.user img{width:34px;height:34px;border-radius:50%;border:2px solid var(--accent)}
+.user b{color:var(--text);display:block}
+.user a{margin-left:auto;color:var(--accent);cursor:pointer;font-size:12px}
+.lose h1{color:var(--accent)}
+.lose .pic{border-color:var(--accent)}
+.hide{display:none}
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div class="card" id="login">
+  <div class="pic"><div class="fb">👻</div></div>
+  <span class="tag">GIVEAWAY</span>
+  <h1>Ghost FF Account Giveaway</h1>
+  <p>Giveaway ekata join wenna kalin Google login wenna.</p>
+  <button class="gbtn" id="gbtn">
+    <svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.7c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-2.9-.8-4.7s.3-3.2.8-4.7l-7.9-6.1C.9 16.4 0 20.1 0 24s.9 7.6 2.6 10.8l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2 1.4-4.7 2.3-8.5 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>
+    Sign in with Google
+  </button>
+  <div class="err hide" id="err"></div>
+  <div class="note">මෙක දිනන්න පුලුවන් සුබ පතනවා💓.</div>
+</div>
+
+<!-- GAME SCREEN -->
+<div class="card hide" id="card">
+  <div class="user" id="user">
+    <img id="uimg" alt="">
+    <div><b id="uname"></b><span id="umail"></span></div>
+    <a id="logout">Logout</a>
+  </div>
+  <div class="pic" id="pic"></div>
+  <span class="tag" id="tag">GIVEAWAY</span>
+  <h1 id="title">Ghost FF Account Giveaway</h1>
+  <p id="msg"></p>
+  <div id="progress">
+    <div class="bar"><i id="fill"></i></div>
+    <div class="small" id="pct">Clicks: 0 / 5000</div>
+  </div>
+  <button id="btn">Click to Win Account</button>
+  <div class="foot" id="foot">Accounts left: 1</div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+var firebaseConfig = {
+  apiKey: "AIzaSyDIaT4VD2rzaGqsDv_RxGm_IYnX4OiJeXA",
+  authDomain: "bloodlegen-5e51c.firebaseapp.com",
+  databaseURL: "https://bloodlegen-5e51c-default-rtdb.firebaseio.com",
+  projectId: "bloodlegen-5e51c",
+  storageBucket: "bloodlegen-5e51c.firebasestorage.app",
+  messagingSenderId: "130652097903",
+  appId: "1:130652097903:web:e6fbbca95927cbe5486c9a",
+  measurementId: "G-1Y2V69S719"
+};
+firebase.initializeApp(firebaseConfig);
+var auth=firebase.auth();
+var currentUser=null;
+
+function $(id){return document.getElementById(id)}
+
+$("gbtn").addEventListener("click",function(){
+  $("err").className="err hide";
+  var provider=new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider).catch(function(e){
+    $("err").textContent="Login fail una: "+(e.code||e.message);
+    $("err").className="err";
+  });
+});
+$("logout").addEventListener("click",function(){
+  location.hash="";
+  auth.signOut();
+});
+
+auth.onAuthStateChanged(function(user){
+  currentUser=user;
+  if(user){
+    $("login").className="card hide";
+    $("card").className="card";
+    $("uname").textContent=user.displayName||"Player";
+    $("umail").textContent=user.email||"";
+    if(user.photoURL){$("uimg").src=user.photoURL}
+    render();
+  }else{
+    $("card").className="card hide";
+    $("login").className="card";
+  }
+});
+
+/* ===== GAME ===== */
+var GOAL=5000;
+/* Free Fire photos: images folder ekata ff1.jpg ... ff6.jpg danna */
+var IMGS=["images/ff1.jpg","images/ff2.jpg","images/ff3.jpg","images/ff4.jpg","images/ff5.jpg","images/ff6.jpg"];
+var FALLBACK=["🔥","🎯","👻","💎","🪂","🏆"];
+var titles=["Ghost FF Account Giveaway","Almost There! 🔥","Verifying Winner…","Step Complete ✅","Account Loading…","Congratulations?! 🎉","One More Click","Ghost Approved 👻"];
+var msgs=[
+"ඔයා තෝරාගත්තා! ඉක්මනට click කරන්න.",
+"Server එක busy. ආයෙත් එක පාරක් click කරන්න.",
+"Account එක ready. Verify කරන්න button එක ඔබන්න.",
+"ගොඩක් ළඟයි! තව ටිකයි.",
+"Ghost ට ඔයාව ඇල්ලුවා 😂 ආයෙ ඔබන්න.",
+"ඔයා තවම human ද කියලා check කරනවා…",
+"ඔයා ඉස්සරහින්ම ඉන්නවා! නවත්තන්න එපා!",
+"තව ටිකක් විතරයි. ඇත්තටම!"
+];
+var btns=["Click to Win Account","Claim Now","Next Step ▶","Verify & Continue","Get My Account","Continue","Unlock Account 🔓","Win Now 🏆"];
+var foots=["Accounts left: 1","Only 1 left!!","Hurry up! ⏳","Another player is also clicking…"];
+
+function pick(a,n){return a[n%a.length]}
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+
+function setPic(n){
+  var box=$("pic");
+  box.innerHTML="";
+  var img=new Image();
+  img.alt="Free Fire";
+  img.onerror=function(){
+    box.innerHTML="";
+    var d=document.createElement("div");
+    d.className="fb";
+    d.textContent=pick(FALLBACK,n);
+    box.appendChild(d);
+  };
+  img.src=pick(IMGS,n);
+  box.appendChild(img);
+}
+function getN(){
+  var h=location.hash.replace("#","");
+  if(h.indexOf("page-")===0){return parseInt(h.slice(5),10)||0}
+  return 0;
+}
+function firstName(){
+  var n=(currentUser&&currentUser.displayName)||"Player";
+  return n.split(" ")[0];
+}
+function renderLose(){
+  $("card").className="card lose";
+  $("tag").textContent="GAME OVER";
+  $("title").textContent=firstName()+", you are losing! 💀";
+  $("msg").textContent="තව player කෙනෙක් account එක win කරා. ඔයා පරාදයි! 🤣🤜";
+  $("progress").className="hide";
+  $("foot").textContent="Winner: Another Player 🏆";
+  $("btn").textContent="Try Again 😭";
+  var box=$("pic");
+  box.innerHTML="";
+  var d=document.createElement("div");
+  d.className="fb";
+  d.textContent="🤣";
+  box.appendChild(d);
+}
+function render(){
+  if(!currentUser){return}
+  var n=getN();
+  if(n>=GOAL){renderLose();return}
+  $("card").className="card";
+  $("progress").className="";
+  setPic(n);
+  $("title").textContent=n===0?titles[0]:pick(titles,n);
+  $("msg").textContent=n===0?firstName()+", "+msgs[0]:rnd(msgs);
+  $("btn").textContent=n===0?btns[0]:pick(btns,n);
+  $("foot").textContent=rnd(foots);
+  $("tag").textContent=n===0?"GIVEAWAY":"STEP "+(n+1);
+  $("fill").style.width=(n/GOAL*100)+"%";
+  $("pct").textContent="Clicks: "+n+" / "+GOAL;
+  window.scrollTo(0,0);
+}
+$("btn").addEventListener("click",function(){
+  var n=getN();
+  if(n>=GOAL){location.hash="";render();return}
+  location.hash="page-"+(n+1);
+});
+window.addEventListener("hashchange",render);
+</script>
+</body>
+</html>
